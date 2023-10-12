@@ -2,8 +2,6 @@
 # For license information, please see license.txt
 
 import frappe
-import random
-import string
 
 from frappe.model.document import Document
 
@@ -18,27 +16,14 @@ class AirplaneTicket(Document):
             #     for a in item:
                     # if(item.item == a.item):
 
-            unique_add_ons = set()
+
             for item in Add_ons:
-                onedata = item.item
-                self.Add_ons = item.item
-                # print("Add_ons////////////////////////////////////////////////////////" , item.item ,unique_add_ons )
-                # unique_add_ons.add(item.item)
-                # if onedata in unique_add_ons:
-                #     print('')
-                #     frappe.throw("item alredy added")
-
-            
-            total_amount += item.amount
-
+                # print("//////ewdcsjfldskfldsilhdslil", item.item)
+                total_amount += item.amount
             self.total_amount = total_amount
 
+        # here seat validation code ...
 
-            # seat code heare
-            random_integer = random.randint(1, 100)
-            random_alphabet = random.choice(string.ascii_uppercase[:5])
-            seat = str(random_integer) + random_alphabet
-            self.seat = seat
         else:
             frappe.throw("Flight is Boarded")
             return

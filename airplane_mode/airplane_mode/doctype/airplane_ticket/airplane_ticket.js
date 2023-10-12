@@ -14,9 +14,7 @@ frappe.ui.form.on("Airplane Ticket", {
             ], function(values) {
                 let seat = values["seat"];
                 console.log(seat);
-                frm.set_value('seat', seat);
-
-                // frm.doc.seat = seat;
+                frm.doc.seat = seat;
                 frm.refresh_field('seat');
             }, __("Assign Seat"), __("Assign"));
           }, __("Actions"));
